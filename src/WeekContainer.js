@@ -1,5 +1,4 @@
 import React from 'react';
-import weatherConfig from './apiKeys';
 import DayCard from './DayCard'
 
 class WeekContainer extends React.Component {

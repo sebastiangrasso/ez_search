@@ -1,0 +1,12 @@
+https://github.com/dondi/bazaar/tree/master/giphy-sample-react-hooks/src
+
+https://developers.google.com/custom-search/docs/overview
+
+https://fontawesome.com/how-to-use/on-the-web/using-with/react
+
+https://developers.google.com/custom-search/docs/tutorial/implementingsearchbox
+
+
+GOOGLE SEARCH
+API KEY: AIzaSyDaHnl96mDg_iT3NHzMlq7iWn9OBLKD0OQ
+SearchEngineID: f9a83606fabb88a5d
