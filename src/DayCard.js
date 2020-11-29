@@ -1,4 +1,6 @@
 import React from 'react';
+import './DayCard.css'
+
 var moment = require('moment');
 
 const DayCard = ({ reading }) => {

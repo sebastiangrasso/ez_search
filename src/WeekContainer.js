@@ -60,7 +60,6 @@ class WeekContainer extends React.Component {
       <h1 className="display-1 jumbotron">Weather</h1>
       <h5 className="display-5 text-muted">{city}, {state}</h5>
         <div className="row justify-content-center">
-
           {this.formatDayCards()}
 
         </div>
