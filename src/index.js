@@ -1,22 +1,22 @@
-import React, { Component } from 'react'
-import ReactDOM from 'react-dom';
-import './index.css';
-import WeekContainer from './WeekContainer';
+import React from "react";
+import { render } from "react-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <WeekContainer />
-      </div>
-    );
-  }
-}
+import Home from "./Home";
+import Weather from "./Weather";
 
-//export default App;
-// ========================================
+//import Sports from "./components/Sports";
+//import Ask from "./components/Ask";
+//import News from "./components/News";
 
-ReactDOM.render(
-  <App  />,
-  document.getElementById('root')
+const App = () => (
+  <Router>
+    <Switch>
+      <Route exact path="/" component={Home} />
+      <Route path="/weather" component={Weather} />
+    </Switch>
+  </Router>
 );
+
+render(<App />, document.getElementById("root"));
