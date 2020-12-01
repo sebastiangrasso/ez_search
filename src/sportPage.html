@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+      integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+      crossorigin="anonymous"
+    />
+    <style>
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+      }
+      header {
+        width: 100%;
+        position: relative;
+        padding: 20px 0;
+      }
+      .container-fluid {
+        /* display: flex;
+        width: 100%; */
+        height: 100%;
+      }
+      .flex-wraper {
+        display: flex;
+      }
+      .flex-center {
+        align-items: center;
+      }
+      .flex-middle {
+        justify-content: center;
+      }
+      .flex-direction {
+        flex-direction: column;
+      }
+      .backBox {
+        cursor: pointer;
+        position: absolute;
+        left: 10px;
+      }
+      .main-content {
+        padding: 40px 20%;
+        /* height: 100%; */
+      }
+
+      .dodgers {
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAABj0lEQVQ4T63UT4hIURTH8c+szEIWFv5kZSULLDQlFkhIFjbULCxsZmMYlEQpKaX8WfiXUmIhy5EizSASkWnKn4WsLP1ZYmNFp87Vdb1nNm69ep3zzvfe+zu/8wb8pzXQw9mCePZm/jNe4z1u42Fb1wW6gaW4iQcJWIiVGT+EczhRw1rQT1zEQfzAHBzA8apoNi5gF37X16AxbMXm5thTGOqQ4Akmy8kKaA0uYzW+dxStw+MmPjc1Gw7NCuganuNKj/jHcAtvmnxIsBijBfQhAzOZYRVeVB9twhGsL6AQOd5341ItYkM+jfE8faTm4y3mFdAXLMenLIxODeLkP64aqTu4iwUF9Cjb/Koq3JNW6LtuWOMr7mNjAYV3QqezTdV+fMPVHtoIlmGsgNamixchrlmvGJMwYLvCmE+jY3hWGzJauR3RmXaVZtTxidTnfAS7RuR6DmttzOmctaiZhTMIDTtHpOx2FPtwCu8QkI+ZPIwdGd9ZH6/vN7IB27AEK3LnaMZL3Mvnj+v3gWZy+F/5X/fkTBMHx6x9AAAAAElFTkSuQmCC);
+      }
+      .giants {
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAABMUlEQVQ4T7WUUVEDQRBEXxwgIThAAg4gCgAHSAAF4IDEARJAATgAFICE1LuaTu1d9up+wlRdXXZvpre7dyYrThSrE+EwB3QG3ADXwAXwB3wDr8Cu1iMOPaBLYDt5bqvKt48HfLZIUyBBnitRBmvgA/gpZta6JzMBD2AtkHL8IJggCdcPwH1TqFzBInvkkYmCWdSGe1/AezHNN/P0TgUjoLei637LSCBPtvAXeCxmStRLGY+ARNePFHk7hvuGnni6OYJsSp6/j4BipIy8GVkM1Eu279yqfpp/BBRpgshKzyx66vTOUDwnrWe2HlwB550mnDW7d/1hpoxIlIn7MXrwcKkhzYkXFkf2C3A315BtA3qayZmrdLLzJ8DiiARMmZmpGJuh9ZC0xKFx//1vZDIly8s9Ji9PE+hPvfMAAAAASUVORK5CYII=);
+      }
+      .rams {
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAB10lEQVQ4T43Uy4vOURzH8deUDZJoKCalLFxLspKISJTsWIz/AInIxsJtpWQQ/4GdlFA0zbiWyY6FJiW35JaIHbn1mc6p06+Z+NbT8/ye3znv8/l8z+ecHv9f0zAHc/EB7/GlTu/5B2c1dmMzZuBPGf8LmTuKAxicCJTV72EpvuMhAn1e/uvDAhzGJkwfD7QeQ3iFnRgpKrbgMl4UWDXzFre6oL04i0vYMY7tDbiKlw3sMT63oAyKkjuIqrZi7TdWYQ1uFMWxfh+9LSjkXsR/tzL5Jn7gWLGbRV8Xq30VtBXXsK18V1D6kdXPl5Wn4imWYwXuFthoBQ0X2VM6Uo7iCL6Wzx5cwQnkXaw9wMkK+oRYS59SUXIOF/EEs5oNWILZpZcZm2ytrKA8JC/bi7XYSQifleBdwGnsx5lGdRbOu0UtKLuVXamwxH9y87yuADIuFWVxMYBDLSi/bzewjyWQSe4y/Oz0L2pnYnHOXgVl0NrSuBaWndyHR01PwqubkDnJ0djBS33DcZwqz11YFZPTP1gUJk8BjlUFJVzzsLCR38JybRzERkxCP663VisojczEJDeZyQ7WnswvE9L8BHAX3nWj3x6R3Dc5sDkisZA7J0relC1Pnyasv4tddoHkiMg4AAAAAElFTkSuQmCC);
+      }
+
+      .lakers {
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAACEElEQVQ4T23TSaiPYRQG8N81ZXYjGTLHtUGEDMklYoONUuiWkpRIUSyQQikWhIUhQoYFRShJGVZCKCHTgkzXTBGF6Oh8+vpy6t+/733Ped7nPOc5Nf4f/TAbc9EaNfiNW5iHz9WySChHO5zHKPzCWzzGOLxHJ3zDUcwvF5aBeuEiemAvNuAlJuT5YozHDLTEU/QpwAqgnriOzniN29iCc9neIXzFd1zBYWzKFgcHWAF0JDWJhIHoj9pk1C0L4vsdluNgMvmYj9YHUNC9jAMpZOTUZTvd8RMz839Xtt6IG3iChegYQJdQn0weIgS/mazmpFa9sQi7sQLTMAQdktnSAIrJhC4x8qAer43Mgs2ZeBKTEzzuI1pgFlbjR+GPuIi+Q5uxyXJixRrPEb/RlfOwS9cA+oITaMCF9FBzrMXGUlGMf1vex4SLOB2DCaDwwwcMSxPuQdP0S5fK63eT1dTS+X3cC6Cd2euSnFx46hPe5HcwKSLMGK4OI4a2w9N/6wNoShrvEaKlvlm1D9PTpGVir3AGC3AWYwqNIulUFkVCFEeEZgHWKj1UgO1IX63EfmzFsvKuPQtkrEr7D0BoMiLdWwBFTuQ2S6uEto3V7Y+EWNpjqVtotQbbEyUWOHZwKB6kt8IS/3atrMHVZNEEd5JVe8QQBmXiNUxK6/w9qjIqANtiXb4cK9Mmi2Kpj+NFxRb+AB9zfC5rLUZxAAAAAElFTkSuQmCC);
+      }
+
+      .team-list {
+        display: flex;
+        font-size: 25px;
+        flex-wrap: wrap;
+      }
+      .team-item {
+        padding-left: 16px;
+        font-size: 22px;
+      }
+
+      .team-icon {
+        margin-right: 10px;
+        background-size: 20px 20px;
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+      }
+
+      .search-box {
+        padding-top: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <header class="flex-wraper flex-middle flex-center">
+        <div class="backBox">
+          <svg
+            width="2em"
+            height="2em"
+            viewBox="0 0 16 16"
+            class="bi bi-arrow-left-square"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"
+            />
+            <path
+              fill-rule="evenodd"
+              d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"
+            />
+          </svg>
+        </div>
+        <h1>SPORTS</h1>
+      </header>
+      <div class="main-content flex-wraper flex-direction flex-center">
+        <table>
+          <tbody>
+            <tr>
+              <td>
+                <h3 style="padding: 0 16px">TEAMS</h3>
+              </td>
+              <td>
+                <h3 style="padding: 0 16px">IN</h3>
+              </td>
+              <td>
+                <h3 style="padding: 0 16px">YOUR</h3>
+              </td>
+              <td>
+                <h3 style="padding: 0 16px">AREA</h3>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <div class="team-item flex-wraper flex-center">
+                  <span class="dodgers team-icon"></span>
+                  <span>Dodgers</span>
+                </div>
+              </td>
+              <td colspan="2">
+                <div class="team-item flex-wraper flex-center">
+                  <span class="giants team-icon"></span>
+                  <span>Dodgers</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <div class="team-item flex-wraper flex-center">
+                  <span class="rams team-icon"></span>
+                  <span>Rams</span>
+                </div>
+              </td>
+              <td colspan="2">
+                <div class="team-item flex-wraper flex-center">
+                  <span class="lakers team-icon"></span>
+                  <span>Lakers</span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="search-box flex-wraper">
+          <input
+            class="form-control mr-sm-2"
+            style="width: auto; display: inline-block"
+            type="text"
+            placeholder="Search"
+          />
+          <button class="btn my-2 my-sm-0" type="submit">Search</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
