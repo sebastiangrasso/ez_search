@@ -8,6 +8,10 @@ import Weather from "./components/Weather";
 import Sports from "./components/Sports";
 import Ask from "./components/Ask";
 import News from "./components/News";
+import Transactional from "./components/Transactional";
+import Informational from "./components/Informational";
+import Directions from "./components/Directions";
+import Other from "./components/Other";
 
 const App = () => (
   <Router>
@@ -17,6 +21,10 @@ const App = () => (
       <Route path="/sports" component={Sports} />
       <Route path="/ask" component={Ask} />
       <Route path="/news" component={News} />
+      <Route path="/transactional" component={Transactional} />
+      <Route path="/informational" component={Informational} />
+      <Route path="/directions" component={Directions} />
+      <Route path="/other" component={Other} />
     </Switch>
   </Router>
 );
