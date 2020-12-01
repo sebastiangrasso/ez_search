@@ -1,6 +1,28 @@
 import React from 'react';
 import DayCard from './DayCard'
 
+//const googleKey = 'AIzaSyDaHnl96mDg_iT3NHzMlq7iWn9OBLKD0OQ'
+
+let user_zip = '11102'
+let city = 'New York'
+let state = 'NY'
+
+
+const getAddress = (lat, long, googleKey) => {
+  const locationURL = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${long}&key=AIzaSyDaHnl96mDg_iT3NHzMlq7iWn9OBLKD0OQ`
+  console.log (locationURL)
+  fetch(locationURL)
+    .then(res => res.json())
+    .then(address => setZip(address))
+  }
+
+
+const setZip = (address) => {
+  city = address.results[5].address_components[2].short_name
+  state = address.results[5].address_components[4].short_name
+  user_zip = address.results[5].address_components[0].short_name
+}
+
 class WeekContainer extends React.Component {
   state = {
     fullData: [],
@@ -8,10 +30,14 @@ class WeekContainer extends React.Component {
   }
 
   componentDidMount = () => {
-    const weatherURL = 'http://api.openweathermap.org/data/2.5/forecast?zip=11102&units=imperial&APPID=4e2f926c98f19cc625c4f96afef5a53c'
+    navigator.geolocation.getCurrentPosition(function(position) {
+      const lat = position.coords.latitude
+      const long = position.coords.longitude
+      console.log(lat, long)
+      getAddress(lat, long)
+    });
 
-    console.log(weatherURL)
-
+    const weatherURL = `http://api.openweathermap.org/data/2.5/forecast?zip=${user_zip}&units=imperial&APPID=4e2f926c98f19cc625c4f96afef5a53c`
 
     fetch(weatherURL)
     .then(res => res.json())
@@ -32,9 +58,8 @@ class WeekContainer extends React.Component {
     return (
       <div className="container">
       <h1 className="display-1 jumbotron">Weather</h1>
-      <h5 className="display-5 text-muted">New York, US</h5>
+      <h5 className="display-5 text-muted">{city}, {state}</h5>
         <div className="row justify-content-center">
-
           {this.formatDayCards()}
 
         </div>

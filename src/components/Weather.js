@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import WeekContainer from '../WeekContainer';
 
 class Weather extends Component {
   handleClick() {
@@ -7,7 +8,9 @@ class Weather extends Component {
   render() {
     return (
       <div>
-        <h1>Weather</h1>
+        <div className="Weather">
+       <WeekContainer />
+       </div>
         <button type="button" onClick={() => this.handleClick()}>
           Home
         </button>
