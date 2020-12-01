@@ -2,6 +2,14 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { Container, Row, Col, Button } from "react-bootstrap";
 
+const divStyle = {
+  marginLeft: "20px",
+  marginRight: "20px",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+};
+
 const Home = () => {
   const history = useHistory();
   const handleClick = () => history.push("/weather");
@@ -38,6 +46,7 @@ const Home = () => {
             variant="primary"
             size="lg"
             type="button"
+            style={divStyle}
             onClick={handleClick}
           >
             Weather
@@ -46,6 +55,7 @@ const Home = () => {
             variant="primary"
             size="lg"
             type="button"
+            style={divStyle}
             onClick={handleClick2}
           >
             Sports
@@ -66,14 +76,16 @@ const Home = () => {
             variant="primary"
             size="lg"
             type="button"
+            style={divStyle}
             onClick={handleClick3}
           >
-            Ask a ?
+            Search
           </Button>
           <Button
             variant="primary"
             size="lg"
             type="button"
+            style={divStyle}
             onClick={handleClick4}
           >
             News
