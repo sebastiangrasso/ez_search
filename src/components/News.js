@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Form, Button } from "react-bootstrap";
+import SearchResult from "../SearchResult"
 
 class News extends Component {
   handleClick() {
@@ -7,12 +8,14 @@ class News extends Component {
   }
   render() {
     return (
-      <Form>
-        <h1>News</h1>
-        <Button variant="primary" size="lg" onClick={() => this.handleClick()}>
+      <div>
+        <div className="Weather">
+       <SearchResult />
+       </div>
+        <button type="button" onClick={() => this.handleClick()}>
           Home
-        </Button>
-      </Form>
+        </button>
+      </div>
     );
   }
 }
