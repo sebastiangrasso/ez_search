@@ -1,14 +1,15 @@
 import React, { Component } from "react";
-import { Container, Row, Col, Button, Form } from "react-bootstrap";
+import { Container, Row, Col, Form } from "react-bootstrap";
 import SearchResult from "../SearchResult"
 
 class Condition1 extends React.Component {
+
   render() {
     console.log(this.state)
     console.log(this.props)
     return (
       <div className="SearchResults">
-       <SearchResult query = {this.props} />
+       <SearchResult query = {this.props.prod} />
       </div>    );
   }
 }
@@ -101,7 +102,7 @@ class Transactional extends Component {
           </Col>
         </Row>
         <div>
-            {this.state.condition === true ? <Condition1 /> : <Condition2 />}
+            {this.state.condition === true ? <Condition1 query = {this.state.prod}/> : <Condition2 />}
         </div>
       </Container>
 

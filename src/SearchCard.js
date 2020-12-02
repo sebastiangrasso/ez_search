@@ -6,7 +6,7 @@ const SearchCard = ({ reading }) => {
   let title = reading.title
   let desc = reading.snippet
   let link = reading.link
-  
+
   return (
     <div class="container-fluid">
       <div class="row">
