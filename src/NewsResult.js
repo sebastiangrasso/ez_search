@@ -14,7 +14,7 @@ class NewsResult extends React.Component {
     console.log(this.state)
     console.log(this.props)
     return (
-      <div className="SearchResults">
+      <div className="News Results">
        <SearchResult query = {this.state.topic} />
       </div>    );
   }

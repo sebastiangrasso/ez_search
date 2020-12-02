@@ -62,6 +62,13 @@ class Transactional extends Component {
     this.setState({
       [event.target.name]: event.target.value
     });
+    this.setState({condition: false})
+  }
+
+  orderquery(){
+    let q = `${this.state.brand} ${this.state.prod} $${this.state.price}`
+    console.log(q)
+    return q
   }
 
   render() {
@@ -110,7 +117,7 @@ class Transactional extends Component {
           </Col>
         </Row>
         <div>
-            {this.state.condition === true ? <Condition1 query = {this.state.prod}/> : <Condition2 />}
+            {this.state.condition === true ? <Condition1 query = {this.orderquery()}/> : <Condition2 />}
         </div>
       </Container>
 
