@@ -3,13 +3,21 @@ import { Container, Row, Col, Form } from "react-bootstrap";
 import SearchResult from "../SearchResult"
 
 class Condition1 extends React.Component {
+  constructor(props){
+    super(props)
+    console.log("in condition")
+    console.log(props)
+    this.state = {
+          query: this.props.query,
+    }
+  }
 
   render() {
     console.log(this.state)
     console.log(this.props)
     return (
       <div className="SearchResults">
-       <SearchResult query = {this.props.prod} />
+       <SearchResult query = {this.props.query} />
       </div>    );
   }
 }

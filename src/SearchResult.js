@@ -9,6 +9,8 @@ let q = "dogs"
 class SearchResult extends Component {
   constructor(props) {
     super(props)
+    console.log("in search")
+    console.log(props)
     this.state = {
           query: this.props.query,
           results: []
