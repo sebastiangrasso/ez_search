@@ -19,6 +19,11 @@ const Home = () => {
 
   return (
     <Container>
+      <Row>
+        <Col>
+          <h1>EZ Search</h1>
+        </Col>
+      </Row>
       <Row className="justify-content-md-center" style={{ marginTop: 60 }}>
         <Col xs lg="12">
           <h1
@@ -47,6 +52,7 @@ const Home = () => {
             size="lg"
             type="button"
             style={divStyle}
+            block
             onClick={handleClick}
           >
             Weather
@@ -67,12 +73,12 @@ const Home = () => {
             variant="primary"
             size="lg"
             type="button"
+            block
             style={divStyle}
             onClick={handleClick3}
           >
             Search
           </Button>
-​
         </Col>
       </Row>
       <Row className="justify-content-md-center" style={{ marginTop: 35 }}>
@@ -85,15 +91,16 @@ const Home = () => {
           xs
           lg="12"
         >
-        <Button
-          variant="primary"
-          size="lg"
-          type="button"
-          style={divStyle}
-          onClick={handleClick4}
-        >
-          News
-        </Button>
+          <Button
+            variant="primary"
+            size="lg"
+            type="button"
+            block
+            style={divStyle}
+            onClick={handleClick4}
+          >
+            News
+          </Button>
         </Col>
       </Row>
     </Container>
