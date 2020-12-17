@@ -52,7 +52,9 @@ class Directions extends Component {
         </Row>
         <Row className="justify-content-md-center" style={{ marginTop: 30 }}>
           <Col style={divStyle}>
-            <Button>Search</Button>
+            <Button variant="primary" size="lg">
+              Search
+            </Button>
           </Col>
         </Row>
       </Container>
