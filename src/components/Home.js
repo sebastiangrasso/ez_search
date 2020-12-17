@@ -1,8 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { Container, Row, Col, Button } from "react-bootstrap";​
-
-
+import { Container, Row, Col, Button } from "react-bootstrap";
 
 const divStyle = {
   marginLeft: "20px",
@@ -11,14 +9,14 @@ const divStyle = {
   justifyContent: "center",
   alignItems: "center",
 };
-​
+
 const Home = () => {
   const history = useHistory();
   const handleClick = () => history.push("/weather");
   const handleClick2 = () => history.push("/sports");
   const handleClick3 = () => history.push("/ask");
   const handleClick4 = () => history.push("/news");
-​
+
   return (
     <Container>
       <Row className="justify-content-md-center" style={{ marginTop: 60 }}>
@@ -101,5 +99,5 @@ const Home = () => {
     </Container>
   );
 };
-​
+
 export default Home;
