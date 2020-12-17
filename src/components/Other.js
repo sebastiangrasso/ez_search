@@ -1,5 +1,35 @@
 import React, { Component } from "react";
-import { Container, Row, Col, Button, Form } from "react-bootstrap";
+import { Container, Row, Col, Form } from "react-bootstrap";
+import SearchResult from "../SearchResult"
+
+class Condition1 extends React.Component {
+  constructor(props){
+    super(props)
+    console.log("in condition")
+    console.log(props)
+    this.state = {
+          query: this.props.query,
+    }
+  }
+
+  render() {
+    console.log(this.state)
+    console.log(this.props)
+    return (
+      <div className="SearchResults">
+       <SearchResult query = {this.props.query} />
+      </div>    );
+  }
+}
+
+class Condition2 extends React.Component {
+  render() {
+    return (
+        <div>No Search Results</div>
+    );
+  }
+}
+
 
 const divStyle = {
   marginLeft: "10px",
@@ -12,41 +42,73 @@ const divStyle = {
 };
 
 class Other extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { prod: '', brand: '', price: '', condition: false};
+    this.handleInput = this.handleInput.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    console.log(this.state)
+    //console.log(this.props)
+    this.setState({condition: true})
+    //console.log(this.state.condition)
+  }
+
+  handleInput(event) {
+    console.log(event.target.value)
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+    this.setState({condition: false})
+  }
+
+  orderquery(){
+    let q = `${this.state.brand} ${this.state.prod} $${this.state.price}`
+    console.log(q)
+    return q
+  }
+
   render() {
-    return (
-      <Container>
-        <Row className="justify-content-md-center" style={{ marginTop: 60 }}>
-          <Col style={divStyle}>
-            <h1>Search for something else?</h1>
-          </Col>
-        </Row>
-        <Row className="justify-content-md-center" style={{ marginTop: 60 }}>
-          <Col style={divStyle}>
-            <Form>
-              <label>
-                Search by category:
-                <input type="text" name="name" />
-              </label>
-            </Form>
-          </Col>
-        </Row>
-        <Row className="justify-content-md-center" style={{ marginTop: 30 }}>
-          <Col style={divStyle}>
-            <Form>
-              <label>
-                Search by keyword:
-                <input type="text" name="name" />
-              </label>
-            </Form>
-          </Col>
-        </Row>
-        <Row className="justify-content-md-center" style={{ marginTop: 30 }}>
-          <Col style={divStyle}>
-            <Button>Search</Button>
-          </Col>
-        </Row>
-      </Container>
-    );
+    return       <Container>
+            <Row className="justify-content-md-center" style={{ marginTop: 60 }}>
+              <Col style={divStyle}>
+                <h1>Looking to buy something?</h1>
+              </Col>
+            </Row>
+            <Row className="justify-content-md-center" style={{ marginTop: 60 }}>
+              <Col style={divStyle}>
+                <Form>
+                  <label>
+                    Category:
+                    <input type="text" name="prod" onChange={this.handleInput} />
+                  </label>
+                </Form>
+              </Col>
+            </Row>
+            <Row className="justify-content-md-center" style={{ marginTop: 30 }}>
+              <Col style={divStyle}>
+                <Form>
+                  <label>
+                    Other:
+                    <input type="text" name="brand" onChange={this.handleInput} />
+                  </label>
+                </Form>
+              </Col>
+            </Row>
+            <Row className="justify-content-md-center" style={{ marginTop: 30 }}>
+              <Col style={divStyle}>
+                <button type="button" onClick={() => this.handleClick()}>
+                    Search
+                </button>
+              </Col>
+            </Row>
+            <div>
+                {this.state.condition === true ? <Condition1 query = {this.orderquery()}/> : <Condition2 />}
+            </div>
+          </Container>
+
   }
 }
 

@@ -18,9 +18,10 @@ const getAddress = (lat, long, googleKey) => {
 
 
 const setZip = (address) => {
-  city = address.results[5].address_components[2].short_name
-  state = address.results[5].address_components[4].short_name
-  user_zip = address.results[5].address_components[0].short_name
+  console.log(address)
+  city = address.results[0].address_components[1].short_name
+  state = address.results[0].address_components[3].short_name
+  user_zip = address.results[0].address_components[5].short_name
 }
 
 class WeekContainer extends React.Component {
