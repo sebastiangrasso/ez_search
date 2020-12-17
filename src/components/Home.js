@@ -1,6 +1,8 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";​
+
+
 
 const divStyle = {
   marginLeft: "20px",
@@ -9,14 +11,14 @@ const divStyle = {
   justifyContent: "center",
   alignItems: "center",
 };
-
+​
 const Home = () => {
   const history = useHistory();
   const handleClick = () => history.push("/weather");
   const handleClick2 = () => history.push("/sports");
   const handleClick3 = () => history.push("/ask");
   const handleClick4 = () => history.push("/news");
-
+​
   return (
     <Container>
       <Row className="justify-content-md-center" style={{ marginTop: 60 }}>
@@ -51,18 +53,9 @@ const Home = () => {
           >
             Weather
           </Button>{" "}
-          <Button
-            variant="primary"
-            size="lg"
-            type="button"
-            style={divStyle}
-            onClick={handleClick2}
-          >
-            Sports
-          </Button>{" "}
         </Col>
       </Row>
-      <Row className="justify-content-md-center" style={{ marginTop: 60 }}>
+      <Row className="justify-content-md-center" style={{ marginTop: 35 }}>
         <Col
           style={{
             display: "flex",
@@ -81,19 +74,32 @@ const Home = () => {
           >
             Search
           </Button>
-          <Button
-            variant="primary"
-            size="lg"
-            type="button"
-            style={divStyle}
-            onClick={handleClick4}
-          >
-            News
-          </Button>
+​
+        </Col>
+      </Row>
+      <Row className="justify-content-md-center" style={{ marginTop: 35 }}>
+        <Col
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+          xs
+          lg="12"
+        >
+        <Button
+          variant="primary"
+          size="lg"
+          type="button"
+          style={divStyle}
+          onClick={handleClick4}
+        >
+          News
+        </Button>
         </Col>
       </Row>
     </Container>
   );
 };
-
+​
 export default Home;
