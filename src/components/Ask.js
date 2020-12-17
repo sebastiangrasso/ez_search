@@ -2,10 +2,8 @@ import React, { Component } from "react";
 import { Button, Container, Row, Col } from "react-bootstrap";
 
 const divStyle = {
-  marginLeft: "10px",
-  marginRight: "10px",
-  marginTop: "10px",
-  marginBottom: "10px",
+  marginLeft: "20px",
+  marginRight: "20px",
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
@@ -29,16 +27,25 @@ class Ask extends Component {
   render() {
     return (
       <Container>
-        <Row className="justify-content-md-center">
+        <Row className="justify-content-md-center" style={{ marginTop: 40 }}>
           <Col style={divStyle}>
             <h1>What type of search would you like to do?</h1>
           </Col>
         </Row>
-        <Row className="justify-content-md-center">
-          <Col style={divStyle}>
+        <Row className="justify-content-md-center" style={{ marginTop: 40 }}>
+          <Col
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+            xs
+            lg="12"
+          >
             <Button
               variant="primary"
               size="lg"
+              style={divStyle}
               block
               type="button"
               onClick={() => this.handleClick()}
@@ -47,12 +54,21 @@ class Ask extends Component {
             </Button>
           </Col>
         </Row>
-        <Row className="justify-content-md-center">
-          <Col style={divStyle}>
+        <Row className="justify-content-md-center" style={{ marginTop: 40 }}>
+          <Col
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+            xs
+            lg="12"
+          >
             <Button
               variant="primary"
               size="lg"
               block
+              style={divStyle}
               type="button"
               onClick={() => this.handleClick2()}
             >
@@ -60,11 +76,20 @@ class Ask extends Component {
             </Button>
           </Col>
         </Row>
-        <Row className="justify-content-md-center">
-          <Col style={divStyle}>
+        <Row className="justify-content-md-center" style={{ marginTop: 40 }}>
+          <Col
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+            xs
+            lg="12"
+          >
             <Button
               variant="primary"
               size="lg"
+              style={divStyle}
               block
               type="button"
               onClick={() => this.handleClick3()}
@@ -73,11 +98,20 @@ class Ask extends Component {
             </Button>
           </Col>
         </Row>
-        <Row className="justify-content-md-center">
-          <Col style={divStyle}>
+        <Row className="justify-content-md-center" style={{ marginTop: 40 }}>
+          <Col
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+            xs
+            lg="12"
+          >
             <Button
               variant="primary"
               size="lg"
+              style={divStyle}
               block
               type="button"
               onClick={() => this.handleClick4()}
